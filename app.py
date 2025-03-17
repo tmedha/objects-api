@@ -11,7 +11,11 @@ def home():
 @app.route("/objects", methods=['GET', 'POST', 'DELETE'])
 def objects():
     if request.method == "GET":
-        objects = s.get_all_objects()
+        if request.args.get("even") == "true":
+            objects = s.get_all_even_objects()
+        else:
+            objects = s.get_all_objects()
+            
         return jsonify(objects)
     
     if request.method == "POST":
