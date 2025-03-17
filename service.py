@@ -28,6 +28,17 @@ def get_all_objects():
         
     return final
 
+def get_all_even_objects():
+    object_list = get_all_objects()
+    # even_objects = []
+    # for object in objects:
+    #     if object["id"]%2 == 0:
+    #         even_objects.append(object)
+            
+    # return even_objects
+    # return [object for object in object_list if object["id"]%2==0]
+    return list(filter(lambda object: object["id"]%2==0, object_list))
+
 def get_object(id):
     if id not in objects:
         return None
